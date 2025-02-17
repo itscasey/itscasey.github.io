@@ -5,11 +5,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: 1000px;
-  background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
-  background-position: center center;
-  overflow: hidden;
-  margin: 0;
+  background-color: #ffd1dc; /* Pastel pink fallback */
+  background-image: url("https://iili.io/HSzXpzg.jpg"); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-position: center center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  overflow: hidden; /* Prevent scrolling */
+  margin: 0; /* Remove default margin */
 }
 
 .paper {
@@ -20,8 +22,8 @@ body {
   transform: rotateZ(-5deg);
   box-shadow: 1px 15px 20px 0px rgba(0, 0, 0, 0.5);
   position: absolute;
-  max-width: 90%;
-  touch-action: none;
+  max-width: 90%; /* Responsive width */
+  touch-action: none; /* Prevent default touch behavior */
 }
 
 .paper.heart {
@@ -61,7 +63,7 @@ img {
 }
 
 .paper.red {
-   filter: hue-rotate(90deg);
+  /* filter: hue-rotate(90deg); */
 }
 
 .paper:nth-of-type(3n) {
@@ -71,21 +73,22 @@ img {
 p {
   font-family: 'Zeyada';
   font-size: 50px;
-  color: rgb(0, 0, 100);
+  color: #ff6f61; /* Pastel pink text color */
   opacity: 0.75;
   user-select: none;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .paper {
-    padding: 15px 50px;
+    padding: 15px 50px; /* Smaller padding for smaller screens */
   }
 
   .paper.image p {
-    font-size: 25px;
+    font-size: 25px; /* Smaller font size for smaller screens */
   }
 
   p {
-    font-size: 40px;
+    font-size: 40px; /* Smaller font size for smaller screens */
   }
 }
