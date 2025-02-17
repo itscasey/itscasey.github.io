@@ -8,7 +8,8 @@ body {
   background-size: 1000px;
   background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
   background-position: center center;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
+  margin: 0;
 }
 
 .paper {
@@ -19,7 +20,8 @@ body {
   transform: rotateZ(-5deg);
   box-shadow: 1px 15px 20px 0px rgba(0, 0, 0, 0.5);
   position: absolute;
-  max-width: 90%; /* Responsive width */
+  max-width: 90%;
+  touch-action: none;
 }
 
 .paper.heart {
@@ -59,7 +61,7 @@ img {
 }
 
 .paper.red {
-  /* filter: hue-rotate(90deg); */
+   filter: hue-rotate(90deg);
 }
 
 .paper:nth-of-type(3n) {
@@ -74,21 +76,16 @@ p {
   user-select: none;
 }
 
-/* Rotation Button */
-.rotate-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 1000;
-}
+@media (max-width: 768px) {
+  .paper {
+    padding: 15px 50px;
+  }
 
-.rotate-button:active {
-  background-color: #ff3b2f;
+  .paper.image p {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 40px;
+  }
 }
