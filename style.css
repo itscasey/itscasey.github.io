@@ -5,12 +5,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffd1dc; /* Pastel pink fallback */
-  background-size: cover; /* Ensures the image covers the entire background */
-  background-position: center center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  overflow: hidden; /* Prevent scrolling */
-  margin: 0; /* Remove default margin */
+  background-color: #ffd1dc;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin: 0;
 }
 
 .paper {
@@ -22,8 +22,8 @@ body {
   transform: rotateZ(-5deg);
   box-shadow: 1px 15px 20px 0px rgba(0, 0, 0, 0.5);
   position: absolute;
-  max-width: 90%; /* Responsive width */
-  touch-action: none; /* Prevent default touch behavior */
+  max-width: 90%;
+  touch-action: none;
 }
 
 .paper.heart {
@@ -73,22 +73,21 @@ img {
 p {
   font-family: 'Zeyada';
   font-size: 50px;
-  color: #ff6f61; /* Pastel pink text color */
+  color: #ff6f61;
   opacity: 0.75;
   user-select: none;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .paper {
-    padding: 15px 50px; /* Smaller padding for smaller screens */
+    padding: 15px 50px;
   }
 
   .paper.image p {
-    font-size: 25px; /* Smaller font size for smaller screens */
+    font-size: 25px;
   }
 
   p {
-    font-size: 40px; /* Smaller font size for smaller screens */
+    font-size: 40px;
   }
 }
