@@ -72,3 +72,8 @@ papers.forEach((paper) => {
   const p = new Paper();
   p.init(paper);
 });
+
+window.addEventListener('click', () => {
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  backgroundMusic.play();
+}, { once: true });

@@ -6,7 +6,6 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #ffd1dc; /* Pastel pink fallback */
-  background-image: url("https://iili.io/HSzXpzg.jpg"); /* Replace with your image URL */
   background-size: cover; /* Ensures the image covers the entire background */
   background-position: center center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
