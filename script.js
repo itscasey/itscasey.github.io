@@ -73,7 +73,12 @@ papers.forEach((paper) => {
   p.init(paper);
 });
 
-window.addEventListener('click', () => {
+const playMusic = () => {
   const backgroundMusic = document.getElementById('backgroundMusic');
-  backgroundMusic.play();
-}, { once: true });
+  backgroundMusic.play().catch(error => {
+    console.log("Music autoplay blocked. User interaction needed.");
+  });
+};
+
+window.addEventListener('click', playMusic, { once: true });
+window.addEventListener('touchstart', playMusic, { once: true });
