@@ -16,20 +16,32 @@ class Paper {
   rotating = false;
 
   init(paper) {
+    this.paper = paper;
+
+    // Mouse events
     document.addEventListener('mousemove', (e) => this.handleMove(e.clientX, e.clientY));
     paper.addEventListener('mousedown', (e) => this.handleStart(e.clientX, e.clientY, e.button));
     window.addEventListener('mouseup', () => this.handleEnd());
+
+    // Touch events
     document.addEventListener('touchmove', (e) => {
       const touch = e.touches[0];
       this.handleMove(touch.clientX, touch.clientY);
-      e.preventDefault();
+      e.preventDefault(); // Prevent scrolling
     });
     paper.addEventListener('touchstart', (e) => {
       const touch = e.touches[0];
-      this.handleStart(touch.clientX, touch.clientY, 0);
+      this.handleStart(touch.clientX, touch.clientY, 0); // Treat touch as left mouse button
       e.preventDefault();
     });
     window.addEventListener('touchend', () => this.handleEnd());
+
+    // Rotation button
+    const rotateButton = document.getElementById('rotateButton');
+    rotateButton.addEventListener('click', () => {
+      this.rotating = !this.rotating; // Toggle rotation mode
+      rotateButton.textContent = this.rotating ? "Drag" : "Rotate";
+    });
   }
 
   handleMove(clientX, clientY) {
@@ -73,28 +85,14 @@ class Paper {
     this.prevMouseY = clientY;
 
     if (button === 0) {
-
+      // Left mouse button or touch
       this.rotating = false;
     } else if (button === 2) {
- 
+      // Right mouse button
       this.rotating = true;
     }
   }
 
   handleEnd() {
     this.holdingPaper = false;
-    this.rotating = false;
-  }
-
-  updatePaperTransform() {
-    const paper = this.paper;
-    paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${this.rotation}deg)`;
-  }
-}
-
-const papers = Array.from(document.querySelectorAll('.paper'));
-papers.forEach((paper) => {
-  const p = new Paper();
-  p.paper = paper;
-  p.init(paper);
-});
+    this.rot
