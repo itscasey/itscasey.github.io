@@ -73,12 +73,21 @@ papers.forEach((paper) => {
   p.init(paper);
 });
 
-const playMusic = () => {
+document.addEventListener('DOMContentLoaded', () => {
   const backgroundMusic = document.getElementById('backgroundMusic');
-  backgroundMusic.play().catch(error => {
-    console.log("Music autoplay blocked. User interaction needed.");
-  });
-};
 
-window.addEventListener('click', playMusic, { once: true });
-window.addEventListener('touchstart', playMusic, { once: true });
+  const playMusic = () => {
+    backgroundMusic.play().then(() => {
+      console.log("Music is playing.");
+    }).catch(error => {
+      console.log("Autoplay blocked. Waiting for user interaction.");
+    });
+
+    // Remove event listeners after the first interaction
+    document.removeEventListener('click', playMusic);
+    document.removeEventListener('touchstart', playMusic);
+  };
+
+  document.addEventListener('click', playMusic);
+  document.addEventListener('touchstart', playMusic);
+});
