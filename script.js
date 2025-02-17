@@ -95,4 +95,16 @@ class Paper {
 
   handleEnd() {
     this.holdingPaper = false;
-    this.rot
+    this.rotating = false;
+  }
+
+  updatePaperTransform() {
+    this.paper.style.transform = `translateX(${this.currentPaperX}px) translateY(${this.currentPaperY}px) rotateZ(${this.rotation}deg)`;
+  }
+}
+
+const papers = Array.from(document.querySelectorAll('.paper'));
+papers.forEach((paper) => {
+  const p = new Paper();
+  p.init(paper);
+});
